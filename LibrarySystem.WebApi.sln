@@ -1,8 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{EB8F866D-E5C4-4C29-B8C5-A224F5AE79F3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{924B171D-84F8-4463-996A-446C72990FD3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Book", "Book", "{BFD7A93B-6F59-4908-87B5-09C8C0829A79}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingList.Api", "ReadingList.Api\ReadingList.Api.csproj", "{3466D299-F807-4F3F-A2D5-2C251FC03F88}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Review.Api", "Review.Api", "{3D4AADAF-8296-43AA-A4E0-C9FB0D00E026}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,8 +12,13 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{BFD7A93B-6F59-4908-87B5-09C8C0829A79} = {EB8F866D-E5C4-4C29-B8C5-A224F5AE79F3}
+		{3466D299-F807-4F3F-A2D5-2C251FC03F88} = {924B171D-84F8-4463-996A-446C72990FD3}
+		{3D4AADAF-8296-43AA-A4E0-C9FB0D00E026} = {924B171D-84F8-4463-996A-446C72990FD3}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3466D299-F807-4F3F-A2D5-2C251FC03F88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3466D299-F807-4F3F-A2D5-2C251FC03F88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3466D299-F807-4F3F-A2D5-2C251FC03F88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3466D299-F807-4F3F-A2D5-2C251FC03F88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
