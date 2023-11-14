@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using WebApiEF.Models;
-using WebApiEF.Services;
+﻿using Book.Api.Models;
+using Book.Api.Services;
+using Microsoft.AspNetCore.Mvc;
 
-namespace WebApiEF.Controllers
+namespace Book.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

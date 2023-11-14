@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using WebApiEF.Data;
-using WebApiEF.Models;
+﻿using Book.Api.Data;
+using Book.Api.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace WebApiEF.Services;
+namespace Book.Api.Services;
 
 public class LibraryService : ILibraryService
     {
@@ -101,7 +101,7 @@ public class LibraryService : ILibraryService
 
         #region Books
 
-        public async Task<List<Book>> GetBooksAsync()
+        public async Task<List<Models.Book>> GetBooksAsync()
         {
             try
             {
@@ -113,7 +113,7 @@ public class LibraryService : ILibraryService
             }
         }
 
-        public async Task<Book> GetBookAsync(Guid id)
+        public async Task<Models.Book> GetBookAsync(Guid id)
         {
             try
             {
@@ -125,7 +125,7 @@ public class LibraryService : ILibraryService
             }
         }
 
-        public async Task<Book> AddBookAsync(Book book)
+        public async Task<Models.Book> AddBookAsync(Models.Book book)
         {
             try
             {
@@ -139,7 +139,7 @@ public class LibraryService : ILibraryService
             }
         }
 
-        public async Task<Book> UpdateBookAsync(Book book)
+        public async Task<Models.Book> UpdateBookAsync(Models.Book book)
         {
             try
             {
@@ -154,7 +154,7 @@ public class LibraryService : ILibraryService
             }
         }
 
-        public async Task<(bool, string)> DeleteBookAsync(Book book)
+        public async Task<(bool, string)> DeleteBookAsync(Models.Book book)
         {
             try
             {

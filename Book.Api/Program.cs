@@ -1,8 +1,7 @@
 using System.Text.Json.Serialization;
+using Book.Api.Data;
+using Book.Api.Services;
 using Microsoft.EntityFrameworkCore;
-
-using WebApiEF.Data;
-using WebApiEF.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

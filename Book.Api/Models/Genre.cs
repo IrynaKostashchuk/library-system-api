@@ -1,4 +1,4 @@
-﻿namespace WebApiEF.Models;
+﻿namespace Book.Api.Models;
 
 public enum Genre
 {

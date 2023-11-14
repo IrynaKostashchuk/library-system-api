@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using WebApiEF.Models;
+﻿using Book.Api.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace WebApiEF.Data;
+namespace Book.Api.Data;
 
 public class DbInitializer
 {
@@ -30,9 +30,9 @@ public class DbInitializer
                 });
             });
 
-            _builder.Entity<Book>(b =>
+            _builder.Entity<Models.Book>(b =>
             {
-                b.HasData(new Book
+                b.HasData(new Models.Book
                 {
                     Id = new Guid("98474b8e-d713-401e-8aee-acb7353f97bb"),
                     Title = "Harry Potter and the Sorcerer's Stone",
@@ -43,7 +43,7 @@ public class DbInitializer
                     Rating = 5,
                     AuthorId = new Guid("90d10994-3bdd-4ca2-a178-6a35fd653c59")
                 });
-                b.HasData(new Book
+                b.HasData(new Models.Book
                 {
                     Id = new Guid("bfe902af-3cf0-4a1c-8a83-66be60b028ba"),
                     Title = "Harry Potter and the Chamber of Secrets",
@@ -54,7 +54,7 @@ public class DbInitializer
                     Rating = 5,
                     AuthorId = new Guid("90d10994-3bdd-4ca2-a178-6a35fd653c59")
                 });
-                b.HasData(new Book
+                b.HasData(new Models.Book
                 {
                     Id = new Guid("150c81c6-2458-466e-907a-2df11325e2b8"),
                     Title = "Steve Jobs",

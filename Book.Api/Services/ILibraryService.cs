@@ -1,6 +1,6 @@
-﻿using WebApiEF.Models;
+﻿using Book.Api.Models;
 
-namespace WebApiEF.Services;
+namespace Book.Api.Services;
 
 public interface ILibraryService
 {
@@ -12,9 +12,9 @@ public interface ILibraryService
     Task<(bool, string)> DeleteAuthorAsync(Author author); // DELETE Author
 
     // Book Services
-    Task<List<Book>> GetBooksAsync(); // GET All Books
-    Task<Book> GetBookAsync(Guid id); // Get Single Book
-    Task<Book> AddBookAsync(Book book); // POST New Book
-    Task<Book> UpdateBookAsync(Book book); // PUT Book
-    Task<(bool, string)> DeleteBookAsync(Book book); // DELETE Book
+    Task<List<Models.Book>> GetBooksAsync(); // GET All Books
+    Task<Models.Book> GetBookAsync(Guid id); // Get Single Book
+    Task<Models.Book> AddBookAsync(Models.Book book); // POST New Book
+    Task<Models.Book> UpdateBookAsync(Models.Book book); // PUT Book
+    Task<(bool, string)> DeleteBookAsync(Models.Book book); // DELETE Book
 }

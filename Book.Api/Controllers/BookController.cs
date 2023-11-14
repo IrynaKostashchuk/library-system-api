@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using WebApiEF.Models;
-using WebApiEF.Services;
+﻿using Book.Api.Services;
+using Microsoft.AspNetCore.Mvc;
 
-namespace WebApiEF.Controllers
+namespace Book.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -30,7 +29,7 @@ namespace WebApiEF.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetBooks(Guid id)
         {
-            Book book = await _libraryService.GetBookAsync(id);
+            Models.Book book = await _libraryService.GetBookAsync(id);
 
             if (book == null)
             {
@@ -54,14 +53,14 @@ namespace WebApiEF.Controllers
         }*/
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateBook(Guid id, Book book)
+        public async Task<IActionResult> UpdateBook(Guid id, Models.Book book)
         {
             if (id != book.Id)
             {
                 return BadRequest();
             }
 
-            Book dbBook = await _libraryService.UpdateBookAsync(book);
+            Models.Book dbBook = await _libraryService.UpdateBookAsync(book);
 
             if (dbBook == null)
             {

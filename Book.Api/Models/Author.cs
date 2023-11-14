@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApiEF.Models;
+namespace Book.Api.Models;
 
 public class Author
 {

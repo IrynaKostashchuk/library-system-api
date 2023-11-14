@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using WebApiEF.Models;
+﻿using Book.Api.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace WebApiEF.Data;
+namespace Book.Api.Data;
 
 public class AppDbContext: DbContext
 {
@@ -10,13 +10,13 @@ public class AppDbContext: DbContext
     }
 
     public DbSet<Author> Authors { get; set; }
-    public DbSet<Book> Books { get; set; }
+    public DbSet<Models.Book> Books { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
 
         // Define relationship between books and authors
-        builder.Entity<Book>()
+        builder.Entity<Models.Book>()
             .HasOne(x => x.Author)
             .WithMany(x => x.Books);
 
