@@ -1,0 +1,46 @@
+﻿{
+  "Routes":[
+    {
+    "DownstreamPathTemplate":"/api/v1/ReadingList",
+    "DownstreamScheme":"http",
+    "DownstreamHostAndPorts":[
+      {
+        "Host":"localhost",
+        "Port":5007
+      }
+    ],
+    "UpstreamPathTemplate":"/ReadingList",
+    "UpstreamHttpMethod":[
+      "GET","POST","DELETE"
+    ]
+    }, 
+    {
+    "DownstreamPathTemplate":"/api/Book",
+    "DownstreamScheme":"http",
+    "DownstreamHostAndPorts":[
+      {
+        "Host":"localhost",
+        "Port":5246
+      }
+    ],
+    "UpstreamPathTemplate":"/Book",
+    "UpstreamHttpMethod":[
+      "GET", "POST", "PUT", "DELETE"
+    ]
+    },
+    {
+      "DownstreamPathTemplate":"/api/v1/Review",
+      "DownstreamScheme":"http",
+      "DownstreamHostAndPorts":[
+        {
+          "Host":"localhost",
+          "Port":5132
+        }
+      ],
+      "UpstreamPathTemplate":"/Review",
+      "UpstreamHttpMethod":[
+        "GET", "POST", "DELETE"
+      ]
+    }
+  ]
+}
