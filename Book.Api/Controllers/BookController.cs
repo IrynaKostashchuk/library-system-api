@@ -39,8 +39,8 @@ namespace Book.Api.Controllers
             return StatusCode(StatusCodes.Status200OK, book);
         }
 
-        /*[HttpPost]
-        public async Task<ActionResult<Book>> AddBook(Book book)
+        [HttpPost]
+        public async Task<ActionResult<Models.Book>> AddBook(Models.Book book)
         {
             var dbBook = await _libraryService.AddBookAsync(book);
 
@@ -49,8 +49,8 @@ namespace Book.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"{book.Title} could not be added.");
             }
 
-            return CreatedAtAction("GetBook", new { id = book.Id }, book);
-        }*/
+            return CreatedAtAction("GetBooks", new { id = book.Id }, book);
+        }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateBook(Guid id, Models.Book book)
