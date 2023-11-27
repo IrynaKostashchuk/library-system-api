@@ -14,6 +14,7 @@ public class ReadingListController : ControllerBase
     {
         _repository = repository ?? throw new ArgumentNullException(nameof(repository));
     }
+    
     [HttpGet("{userName}", Name = "GetReadingList")]
     [ProducesResponseType(typeof(Entities.ReadingList), (int)HttpStatusCode.OK)]
     public async Task<ActionResult<Entities.ReadingList>> GetReadingList(string userName)
@@ -21,12 +22,14 @@ public class ReadingListController : ControllerBase
         var list = await _repository.GetReadingList(userName);
         return Ok(list ?? new Entities.ReadingList(userName));
     }
+    
     [HttpPost]
     [ProducesResponseType(typeof(Entities.ReadingList), (int)HttpStatusCode.OK)]
     public async Task<ActionResult<Entities.ReadingList>> UpdateReadingList([FromBody] Entities.ReadingList list)
     {
         return Ok(await _repository.UpdateReadingList(list));
     }
+    
     [HttpDelete("{userName}", Name = "DeleteReadingList")]
     [ProducesResponseType(typeof(void), (int)HttpStatusCode.OK)]
     public async Task<IActionResult> DeleteReadingList(string userName)

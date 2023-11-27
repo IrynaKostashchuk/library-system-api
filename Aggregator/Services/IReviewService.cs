@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Aggregator.Models;
 
 namespace Aggregator.Services;
 
 public interface IReviewService
 {
-    Task<IActionResult> GetAll();
-    Task<IActionResult> GetById(Guid id);
+    Task<IEnumerable<ReviewModel>> GetByUserName(string userName);
 }
