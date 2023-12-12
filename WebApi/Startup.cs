@@ -45,6 +45,7 @@ namespace WebApi
             services.AddApplication();
             services.AddPersistence(Configuration);
             services.AddControllers();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,5 +1,8 @@
-﻿using Book.Api.Services;
+﻿using System.Text;
+using Book.Api.Services;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using RabbitMQ.Client;
 
 namespace Book.Api.Controllers
 {
@@ -38,6 +41,19 @@ namespace Book.Api.Controllers
 
             return StatusCode(StatusCodes.Status200OK, book);
         }
+        
+        private void PublishToMessageQueue(string integrationEvent, string eventData)
+        {
+            // TOOO: Reuse and close connections and channel, etc, 
+            var factory = new ConnectionFactory();
+            var connection = factory.CreateConnection();
+            var channel = connection.CreateModel();
+            var body = Encoding.UTF8.GetBytes(eventData);
+            channel.BasicPublish(exchange: "book_exchange",
+                routingKey: integrationEvent,
+                basicProperties: null,
+                body: body);
+        }
 
         [HttpPost]
         public async Task<ActionResult<Models.Book>> AddBook(Models.Book book)
@@ -48,6 +64,22 @@ namespace Book.Api.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, $"{book.Title} could not be added.");
             }
+            
+            var integrationEventData = JsonConvert.SerializeObject(new
+            {
+                id = book.Id,
+                title = book.Title,
+                subtitle = book.Subtitle,
+                description = book.Description,
+                genre = book.Genre,
+                publisher = book.Publisher,
+                isbn = book.ISBN,
+                rating = book.Rating,
+                releaseDate = book.ReleaseDate,
+                authorId = book.AuthorId
+            });
+            
+            PublishToMessageQueue("book.add", integrationEventData);
 
             return CreatedAtAction("GetBooks", new { id = book.Id }, book);
         }
